@@ -1,0 +1,346 @@
+###PATH="$HOME/.cargo/bin${PATH:+:=${PATH}}"
+
+alias nano="nvim"
+alias vim="nvim"
+alias py="python"
+alias r="ranger"
+alias music="cava"
+alias clear="clear && source ~/.zshrc"
+alias cl="clear"
+alias clock="tty-clock"
+alias gc="git clone"
+alias cheatsheet="python ~/cheatsheet.py"
+alias cs="cheatsheet"
+alias grep="batgrep"
+alias man="batman"
+alias s="python /home/less/scripts/st.py"
+alias calc="python /home/less/scripts/calc.py"
+#alias =""
+#alias =""
+
+
+
+## DWM
+alias bwcleanbuild="sudo rm -r  /opt/dwm-source/config.h /opt/dwm-source/drw.o /opt/dwm-source/dwm /opt/dwm-source/dwm.o /opt/dwm-source/util.o && cd ~/bw-dwm/archcraft-dwm/source && sudo make clean install && cd ~/bw-dwm/archcraft-dwm/ && makepkg -if --cleanbuild"
+alias bwcleanbuild2="cd ~/bw-dwm/archcraft-dwm/source && sudo make clean install && cd ~/bw-dwm/archcraft-dwm/ && makepkg -if --cleanbuild"
+alias bwbackupbuild="sudo rm -r  /opt/dwm-source/config.h /opt/dwm-source/drw.o /opt/dwm-source/dwm /opt/dwm-source/dwm.o /opt/dwm-source/util.o && cd ~/bw-dwm/archcraft-dwm/source && sudo make clean install && cd ~/bw-dwm/archcraft-dwm/ && makepkg -if --cleanbuild"
+alias gruvcleanbuild="sudo rm -r  /opt/dwm-source/config.h /opt/dwm-source/drw.o /opt/dwm-source/dwm /opt/dwm-source/dwm.o /opt/dwm-source/util.o && cd ~/gruv-dwm/archcraft-dwm/source && sudo make clean install && cd ~/gruv-dwm/archcraft-dwm/ && makepkg -if --cleanbuild"
+
+
+### PATH
+if [ -d "$HOME/.bin" ] ;
+  then PATH="$HOME/.bin:$PATH"
+fi
+
+if [ -d "$HOME/.local/bin" ] ;
+  then PATH="$HOME/.local/bin:$PATH"
+fi
+
+if [ -d "$HOME/Applications" ] ;
+  then PATH="$HOME/Applications:$PATH"
+fi
+
+### SETTING OTHER ENVIRONMENT VARIABLES
+if [ -z "$XDG_CONFIG_HOME" ] ; then
+    export XDG_CONFIG_HOME="$HOME/.config"
+fi
+if [ -z "$XDG_DATA_HOME" ] ; then
+    export XDG_DATA_HOME="$HOME/.local/share"
+fi
+if [ -z "$XDG_CACHE_HOME" ] ; then
+    export XDG_CACHE_HOME="$HOME/.cache"
+fi
+export XMONAD_CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/xmonad" # xmonad.hs is expected to stay here
+export XMONAD_DATA_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/xmonad"
+export XMONAD_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/xmonad"
+
+### CHANGE TITLE OF TERMINALS
+case ${TERM} in
+  xterm*|rxvt*|Eterm*|aterm|kterm|gnome*|alacritty|st|konsole*)
+    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/\~}\007"'
+        ;;
+  screen*)
+    PROMPT_COMMAND='echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/\~}\033\\"'
+    ;;
+esac
+
+# Alias
+alias editalias="nano ~/.bashrc"
+alias applyalias="source ~/.bashrc"
+alias cd..="cd .."
+#alias list="exa -lah --color=always --group-directories-first --icons"
+#alias ls="list"
+alias ls="exa -lah --color=always --group-directories-first --icons"
+alias cat="bat" 
+alias file="ranger" 
+alias files="ranger" 
+alias grep="ripgrep" 
+alias vmhelp="echo Starta && echo virsh start VM-NAMN && echo Stoppa && echo virsh shutdown VM-NAMN && echo Lista && echo virsh list --all && echo Öppna skärm && echo virt-viewer VM-NAMN && echo && echo virt-install --name=VALFRITT-NAMN \ && echo --vcpus=1 \ && echo --memory=1024 \ && echo --cdrom=/home/whoami/Downloads/Distros/Win11.iso \ && echo --disk size=5 \ && echo --os-variant=win11" 
+alias rr="curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash"
+
+# Github Repos
+alias rc-files="cd ~/github/rc-files"
+alias rc-update="cp ~/.zshrc ~/github/rc-files/.zsh_input && cp ~/.bashrc ~/github/rc-files/.bash_input"
+alias bw-dwm="cd ~/github/bw-dwm/archcraft-dwm"
+alias dwm="cd ~/github/bw-dwm/archcraft-dwm"
+alias wallappers="cd ~/github/wallpapers"
+alias install="nvim ~/github/install-script/install.sh"
+alias nvim-config="cd ~/.config/nvim/lua/core"
+
+# Changing "ls" to "exa"
+#alias ls='exa -lah --color=always --group-directories-first' # my preferred listing
+alias la='exa -a --color=always --group-directories-first'  # all files and dirs
+alias ll='exa -l --color=always --group-directories-first'  # long format
+alias lt='exa -aT --color=always --group-directories-first' # tree listing
+
+### "bat" as manpager
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
+# Pandoc
+alias topng='function topng_func() { pandoc -s "$1" -o "${1%.*}.png"; if [ $? -eq 0 ]; then echo "Conversion successful: $1 -> ${1%.*}.png"; else echo "Conversion failed."; fi }; topng_func'
+alias tolog='function tolog_func() { pandoc -s "$1" -o "${1%.*}.log"; if [ $? -eq 0 ]; then echo "Conversion successful: $1 -> ${1%.*}.log"; else echo "Conversion failed."; fi }; tolog_func'
+alias tomp4='function tomov_func() { ffmpeg -i "$1" "${1%.*}.mp4"; if [ $? -eq 0 ]; then echo "Conversion successful: $1 -> ${1%.*}.mp4"; else echo "Conversion failed."; fi }; tomov_func'
+alias tomp3='function tomp4mp3_func() { ffmpeg -i "$1" -vn -acodec mp3 "${1%.*}.mp3"; if [ $? -eq 0 ]; then echo "Conversion successful: $1 -> ${1%.*}.mp3"; else echo "Conversion failed."; fi }; tomp4mp3_func'
+alias towav='function tomp3wav_func() { ffmpeg -i "$1" "${1%.*}.wav"; if [ $? -eq 0 ]; then echo "Conversion successful: $1 -> ${1%.*}.wav"; else echo "Conversion failed."; fi }; tomp3wav_func'
+alias todocx='function topdfdocx_func() { pandoc -s "$1" -o "${1%.*}.docx"; if [ $? -eq 0 ]; then echo "Conversion successful: $1 -> ${1%.*}.docx"; else echo "Conversion failed."; fi }; topdfdocx_func'
+alias toxlsx='function tocsvxlsx_func() { pandoc -s "$1" -o "${1%.*}.xlsx"; if [ $? -eq 0 ]; then echo "Conversion successful: $1 -> ${1%.*}.xlsx"; else echo "Conversion failed."; fi }; tocsvxlsx_func'
+alias tocsv='function toxlscsv_func() { pandoc -s "$1" -o "${1%.*}.csv"; if [ $? -eq 0 ]; then echo "Conversion successful: $1 -> ${1%.*}.csv"; else echo "Conversion failed."; fi }; toxlscsv_func'
+alias toxml='function tojsonxml_func() { pandoc -s "$1" -o "${1%.*}.xml"; if [ $? -eq 0 ]; then echo "Conversion successful: $1 -> ${1%.*}.xml"; else echo "Conversion failed."; fi }; tojsonxml_func'
+alias tojson='function toxmljson_func() { pandoc -s "$1" -o "${1%.*}.json"; if [ $? -eq 0 ]; then echo "Conversion successful: $1 -> ${1%.*}.json"; else echo "Conversion failed."; fi }; toxmljson_func'
+alias topdf='function topptxpdf_func() { pandoc -s "$1" -o "${1%.*}.pdf"; if [ $? -eq 0 ]; then echo "Conversion successful: $1 -> ${1%.*}.pdf"; else echo "Conversion failed."; fi }; topptxpdf_func'
+
+
+
+
+# pacman and yay
+alias pacman="sudo pacman"
+alias pacsyu='sudo pacman -Syu'                  # update only standard pkgs
+alias pacsyyu='sudo pacman -Syyu'                # Refresh pkglist & update standard pkgs
+alias yaysua='yay -Sua --noconfirm'              # update only AUR pkgs (yay)
+alias yaysyu='yay -Syu --noconfirm'              # update standard pkgs and AUR pkgs (yay)
+alias parsua='paru -Sua --noconfirm'             # update only AUR pkgs (paru)
+alias parsyu='paru -Syu --noconfirm'             # update standard pkgs and AUR pkgs (paru)
+alias unlock='sudo rm /var/lib/pacman/db.lck'    # remove pacman lock
+alias cleanup='sudo pacman -Rns $(pacman -Qtdq)' # remove orphaned packages
+
+# gpg encryption
+# verify signature for isos
+alias gpg-check="gpg2 --keyserver-options auto-key-retrieve --verify"
+# receive the key of a developer
+alias gpg-retrieve="gpg2 --keyserver-options auto-key-retrieve --receive-keys"
+
+# Play audio files in current dir by type
+alias playwav='deadbeef *.wav'
+alias playogg='deadbeef *.ogg'
+alias playmp3='deadbeef *.mp3'
+
+# Play video files in current dir by type
+alias playavi='mpv *.avi'
+alias playmov='mpv *.mov'
+alias playmp4='mpv *.mp4'
+
+# git
+alias addup='git add -u'
+alias addall='git add .'
+alias branch='git branch'
+alias checkout='git checkout'
+alias clone='git clone'
+alias commit='git commit -m'
+alias fetch='git fetch'
+alias pull='git pull origin'
+alias push='git push origin'
+alias stat='git status'  # 'status' is protected name so using 'stat' instead
+alias tag='git tag'
+alias newtag='git tag -a'
+
+# Confirms
+alias mv="mv -i"
+alias cp="cp -i"
+alias rm="rm -i"
+alias ln="ln -i"
+
+# Log Deletion
+#alias exit="sudo shred -vfzu /var/log/boot.log && sudo shred -vfzu /var/log/pacman.log && sudo shred -vfzu /var/log/Xorg.0.log && sudo shred -vfzu /home/whoami/.zsh_history && sudo shred -vfzu /var/log/mullvad-vpn/daemon.log && clear && echo GoodBye! && exit"
+alias exit="cd -s /var/log && sudo shred -vfzu boot.log pacman.log Xorg.0.log Xorg.0.log.old && cd -s /home/less && sudo shred -vfzu .zsh_history && sudo shred -vfzu /var/log/mullvad-vpn/daemon.log && clear && echo System wipedown complete! && exit"
+alias wipe="sudo shred -vfzu /var/log/boot.log && sudo shred -vfzu /var/log/pacman.log && sudo shred -vfzu /var/log/Xorg.0.log && sudo shred -vfzu /home/whoami/.zsh_history && sudo shred -vfzu /var/log/mullvad-vpn/daemon.log && clear && echo System wipedown complete!"
+
+
+#ignore upper and lowercase when TAB completion
+#bind "set completion-ignore-case on"
+
+### ARCHIVE EXTRACTION
+# usage: ex <file>
+ex ()
+{
+  if [ -f "$1" ] ; then
+    case $1 in
+      *.tar.bz2)   tar xjf $1   ;;
+      *.tar.gz)    tar xzf $1   ;;
+      *.bz2)       bunzip2 $1   ;;
+      *.rar)       unrar x $1   ;;
+      *.gz)        gunzip $1    ;;
+      *.tar)       tar xf $1    ;;
+      *.tbz2)      tar xjf $1   ;;
+      *.tgz)       tar xzf $1   ;;
+      *.zip)       unzip $1     ;;
+      *.Z)         uncompress $1;;
+      *.7z)        7z x $1      ;;
+      *.deb)       ar x $1      ;;
+      *.tar.xz)    tar xf $1    ;;
+      *.tar.zst)   unzstd $1    ;;
+      *)           echo "'$1' cannot be extracted via ex()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}
+
+### CD NAVIGATION
+up () {
+  local d=""
+  local limit="$1"
+
+  if [ -z "$limit" ] || [ "$limit" -le 0 ]; then
+    limit=1
+  fi
+
+  for ((i=1;i<=limit;i++)); do
+    d="../$d"
+  done
+
+  if ! cd "$d"; then
+    echo "Det funkade inte att gå upp $limit ditt retard.";
+  fi
+}
+
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Path to your oh-my-zsh installation.
+export ZSH=$HOME/.oh-my-zsh
+
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="archcraft"
+
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME="archcraft"
+# a theme from this variable instead of looking in $ZSH/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment one of the following lines to change the auto-update behavior
+zstyle ':omz:update' mode disabled  # disable automatic updates
+# zstyle ':omz:update' mode auto      # update automatically without asking
+# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+
+# Uncomment the following line to change how often to auto-update (in days).
+# zstyle ':omz:update' frequency 13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS="true"
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# You can also set it to another string to have that shown instead of the default red dots.
+# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
+# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# On-demand rehash
+zshcache_time="$(date +%s%N)"
+
+autoload -Uz add-zsh-hook
+
+rehash_precmd() {
+  if [[ -a /var/cache/zsh/pacman ]]; then
+    local paccache_time="$(date -r /var/cache/zsh/pacman +%s%N)"
+    if (( zshcache_time < paccache_time )); then
+      rehash
+      zshcache_time="$paccache_time"
+    fi
+  fi
+}
+
+add-zsh-hook -Uz precmd rehash_precmd
+
+# omz
+alias zshconfig="geany ~/.zshrc"
+alias ohmyzsh="thunar ~/.oh-my-zsh"
+
+alias ls="exa -lah --color=always --group-directories-first --icons"
+#pfetch
+python ~/pfetch.py
+#python /s.py
+export PATH=$PATH:/home/less/.spicetify
+#PROMPT="%B%F{235}[%f%b%F{240}%~%f%B%F{235}]%f%b %B%F{yellow}›%f%b "
+PROMPT="%B%F{235}[%f%b%F{240}%~%f%B%F{235}]%f%b %B%F{lightred}›%f%b "
