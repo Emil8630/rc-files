@@ -1,0 +1,113 @@
+## Copyright (C) 2020-2023 Aditya Shakya <adi109#@gmail.com>
+###
+## Configuration for Alacritty, the GPU enhanced terminal emulator.
+## It's a very basic and simple config file, for full configuration...
+## See, /usr/share/doc/alacritty/example/alacritty.yml
+
+## Import files (Colors, Fonts, Etc)
+import:
+  - /usr/share/archcraft/dwm/alacritty/fonts.yml
+
+schemes:
+  bw: &bw
+  # Default colors
+    primary:
+      background: '#0f100f'
+      foreground: '#c8cac2'
+    
+    # Normal colors
+    normal:
+      black:   '#191a18'
+      red:     '#222221'
+      green:   '#333431'
+        #      yellow:   '#e5c07a'
+      yellow:  '#4a4b47'
+      blue:    '#686964'
+      magenta: '#8a8c86'
+      cyan:    '#b3b5ad'
+      white:   '#e1e3da'
+      
+      # Bright colors
+    bright:
+      black:   '#81c7ab'
+      red:     '#a56376'
+      green:   '#a6b898'
+      yellow:  '#e0c790'
+      blue:    '#879eb5'
+      magenta: '#a78ca4'
+      cyan:    '#c18873'
+      white:   '#58d3a9'
+
+  gruvbox: &gruvbox
+  # Default colors
+    primary:
+      background: '#282828'
+      foreground: '#ebdbb2'
+    
+    # Normal colors
+    normal:
+      black:   '#282828'
+      red:     '#cc241d'
+      green:   '#98971a'
+      yellow:  '#689d6a'
+      blue:    '#d79921'
+      magenta: '#989281'
+      cyan:    '#d79921'
+      white:   '#a89984'
+      
+      # Bright colors
+    bright:
+      black:   '#928374'
+      red:     '#fb4934'
+      green:   '#b8bb26'
+      yellow:  '#fabd2f'
+      blue:    '#83a598'
+      magenta: '#d3869b'
+      cyan:    '#8ec07c'
+      white:   '#ebdbb2'
+       
+
+colors: *bw
+
+## Set environment variables
+env:
+  TERM: alacritty
+  WINIT_X11_SCALE_FACTOR: '1.0'
+
+## Terminal window settings
+window:
+  dimensions:
+    columns: 84
+    lines: 23
+
+  padding:
+    x: 10
+    y: 10
+
+  decorations: full
+  startup_mode: Windowed
+  dynamic_title: true
+
+## scrolling
+  history: 10000
+  multiplier: 3
+
+## Background opacity
+  opacity: 1.0
+
+## Cursor
+cursor:
+  style:
+    shape: Block
+    blinking: On
+
+  unfocused_hollow: false
+
+## Live config reload
+live_config_reload: true
+
+## Shell
+#shell:
+#  program: /bin/zsh
+#  args:
+#    - --login
