@@ -21,9 +21,9 @@ alias calc="python /home/less/scripts/calc.py"
 
 
 ## DWM
-alias bwcleanbuild="sudo rm -r  /opt/dwm-source/config.h /opt/dwm-source/drw.o /opt/dwm-source/dwm /opt/dwm-source/dwm.o /opt/dwm-source/util.o && cd ~/bw-dwm/archcraft-dwm/source && sudo make clean install && cd ~/bw-dwm/archcraft-dwm/ && makepkg -if --cleanbuild"
-alias bwcleanbuild2="cd ~/bw-dwm/archcraft-dwm/source && sudo make clean install && cd ~/bw-dwm/archcraft-dwm/ && makepkg -if --cleanbuild"
-alias bwbackupbuild="sudo rm -r  /opt/dwm-source/config.h /opt/dwm-source/drw.o /opt/dwm-source/dwm /opt/dwm-source/dwm.o /opt/dwm-source/util.o && cd ~/bw-dwm/archcraft-dwm/source && sudo make clean install && cd ~/bw-dwm/archcraft-dwm/ && makepkg -if --cleanbuild"
+alias bwcleanbuild="sudo rm -r  /opt/dwm-source/config.h /opt/dwm-source/drw.o /opt/dwm-source/dwm /opt/dwm-source/dwm.o /opt/dwm-source/util.o && cd ~/github/bw-dwm/archcraft-dwm/source && sudo make clean install && cd ~/github/bw-dwm/archcraft-dwm/ && makepkg -if --cleanbuild"
+alias bwcleanbuild2="cd ~/github/bw-dwm/archcraft-dwm/source && sudo make clean install && cd ~/github/bw-dwm/archcraft-dwm/ && makepkg -if --cleanbuild"
+alias bwbackupbuild="sudo rm -r  /opt/dwm-source/config.h /opt/dwm-source/drw.o /opt/dwm-source/dwm /opt/dwm-source/dwm.o /opt/dwm-source/util.o && cd ~/github/bw-dwm/archcraft-dwm/source && sudo make clean install && cd ~/github/bw-dwm/archcraft-dwm/ && makepkg -if --cleanbuild"
 alias gruvcleanbuild="sudo rm -r  /opt/dwm-source/config.h /opt/dwm-source/drw.o /opt/dwm-source/dwm /opt/dwm-source/dwm.o /opt/dwm-source/util.o && cd ~/gruv-dwm/archcraft-dwm/source && sudo make clean install && cd ~/gruv-dwm/archcraft-dwm/ && makepkg -if --cleanbuild"
 
 
@@ -85,6 +85,7 @@ alias bw-dwm="cd ~/github/bw-dwm/archcraft-dwm"
 alias dwm="cd ~/github/bw-dwm/archcraft-dwm"
 alias wallappers="cd ~/github/wallpapers"
 alias install="nvim ~/github/install-script/install.sh"
+alias install-script="nvim ~/github/install-script/install.sh"
 alias nvim-config="cd ~/.config/nvim/lua/core"
 
 # Changing "ls" to "exa"
