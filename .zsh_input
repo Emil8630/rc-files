@@ -15,15 +15,27 @@ alias grep="batgrep"
 alias man="batman"
 alias s="python /home/less/scripts/st.py"
 alias calc="python /home/less/scripts/calc.py"
-alias wipedrive="sudo dd if=/dev/urandom of=$2/junk status=progress"
+alias wipedrive="sh ~/github/bw-dwm/archcraft-dwm/shared/bin/wipe_drive.sh"
+alias writeiso="iso_write_func"
 
+iso_write_func() {
+    if [ -z "$1" ] || [ -z "$2" ]; then
+        echo "Use correct format, use 'lsblk' to find drive name
+        (writeiso sdb win10.iso)"
+    elif [ "$1" == "sda" ]; then
+        echo "Cannot use sda as the input file, because sda is your primary hard disk or ssd which would erase your OS"
+    else
+        sudo dd if="/dev/$1" of="$2" status=progress bs=2M
+        sync
+    fi
+}
 
 
 ## DWM
-alias bwcleanbuild="sudo rm -r  /opt/dwm-source/config.h /opt/dwm-source/drw.o /opt/dwm-source/dwm /opt/dwm-source/dwm.o /opt/dwm-source/util.o && cd ~/github/bw-dwm/archcraft-dwm/source && sudo make clean install && cd ~/github/bw-dwm/archcraft-dwm/ && makepkg -if --cleanbuild"
+alias bwcleanbuild="sudo shred -fzu /opt/dwm-source/config.h /opt/dwm-source/drw.o /opt/dwm-source/dwm /opt/dwm-source/dwm.o /opt/dwm-source/util.o && cd ~/github/bw-dwm/archcraft-dwm/source && sudo make clean install && cd ~/github/bw-dwm/archcraft-dwm/ && makepkg -if --cleanbuild"
 alias bwcleanbuild2="cd ~/github/bw-dwm/archcraft-dwm/source && sudo make clean install && cd ~/github/bw-dwm/archcraft-dwm/ && makepkg -if --cleanbuild"
-alias bwbackupbuild="sudo rm -r  /opt/dwm-source/config.h /opt/dwm-source/drw.o /opt/dwm-source/dwm /opt/dwm-source/dwm.o /opt/dwm-source/util.o && cd ~/github/bw-dwm/archcraft-dwm/source && sudo make clean install && cd ~/github/bw-dwm/archcraft-dwm/ && makepkg -if --cleanbuild"
-alias gruvcleanbuild="sudo rm -r  /opt/dwm-source/config.h /opt/dwm-source/drw.o /opt/dwm-source/dwm /opt/dwm-source/dwm.o /opt/dwm-source/util.o && cd ~/gruv-dwm/archcraft-dwm/source && sudo make clean install && cd ~/gruv-dwm/archcraft-dwm/ && makepkg -if --cleanbuild"
+alias bwbackupbuild="sudo shred -fzu /opt/dwm-source/config.h /opt/dwm-source/drw.o /opt/dwm-source/dwm /opt/dwm-source/dwm.o /opt/dwm-source/util.o && cd ~/github/bw-dwm/archcraft-dwm/source && sudo make clean install && cd ~/github/bw-dwm/archcraft-dwm/ && makepkg -if --cleanbuild"
+alias gruvcleanbuild="sudo shred -fzu /opt/dwm-source/config.h /opt/dwm-source/drw.o /opt/dwm-source/dwm /opt/dwm-source/dwm.o /opt/dwm-source/util.o && cd ~/gruv-dwm/archcraft-dwm/source && sudo make clean install && cd ~/gruv-dwm/archcraft-dwm/ && makepkg -if --cleanbuild"
 
 
 ### PATH
