@@ -15,8 +15,7 @@ alias grep="batgrep"
 alias man="batman"
 alias s="python /home/less/scripts/st.py"
 alias calc="python /home/less/scripts/calc.py"
-#alias =""
-#alias =""
+alias wipedrive="sudo dd if=/dev/urandom of=$2/junk status=progress"
 
 
 
@@ -83,7 +82,7 @@ alias rc-files="cd ~/github/rc-files"
 alias rc-update="cp ~/.zshrc ~/github/rc-files/.zsh_input && cp ~/.bashrc ~/github/rc-files/.bash_input"
 alias bw-dwm="cd ~/github/bw-dwm/archcraft-dwm"
 alias dwm="cd ~/github/bw-dwm/archcraft-dwm"
-alias wallappers="cd ~/github/wallpapers"
+alias wallpapers="cd ~/github/wallpapers"
 alias install="nvim ~/github/install-script/install.sh"
 alias install-script="nvim ~/github/install-script/install.sh"
 alias nvim-config="cd ~/.config/nvim/lua/core"
@@ -99,6 +98,7 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 # Pandoc
 alias topng='function topng_func() { pandoc -s "$1" -o "${1%.*}.png"; if [ $? -eq 0 ]; then echo "Conversion successful: $1 -> ${1%.*}.png"; else echo "Conversion failed."; fi }; topng_func'
+alias tojpg='function tojpg_func() { pandoc -s "$1" -o "${1%.*}.jpg"; if [ $? -eq 0 ]; then echo "Conversion successful: $1 -> ${1%.*}.png"; else echo "Conversion failed."; fi }; tojpg_func'
 alias tolog='function tolog_func() { pandoc -s "$1" -o "${1%.*}.log"; if [ $? -eq 0 ]; then echo "Conversion successful: $1 -> ${1%.*}.log"; else echo "Conversion failed."; fi }; tolog_func'
 alias tomp4='function tomov_func() { ffmpeg -i "$1" "${1%.*}.mp4"; if [ $? -eq 0 ]; then echo "Conversion successful: $1 -> ${1%.*}.mp4"; else echo "Conversion failed."; fi }; tomov_func'
 alias tomp3='function tomp4mp3_func() { ffmpeg -i "$1" -vn -acodec mp3 "${1%.*}.mp3"; if [ $? -eq 0 ]; then echo "Conversion successful: $1 -> ${1%.*}.mp3"; else echo "Conversion failed."; fi }; tomp4mp3_func'
@@ -157,7 +157,7 @@ alias newtag='git tag -a'
 # Confirms
 alias mv="mv -i"
 alias cp="cp -i"
-alias rm="rm -i"
+alias rm="sudo shred -fzu"
 alias ln="ln -i"
 
 # Log Deletion
