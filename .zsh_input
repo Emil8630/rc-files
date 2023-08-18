@@ -1,9 +1,11 @@
+export SUDO_ASKPASS="/home/less/dwm/askpass.sh"
+
 ###PATH="$HOME/.cargo/bin${PATH:+:=${PATH}}"
 
 alias nano="nvim"
-alias vim="nvim"
 alias py="python"
 alias r="ranger"
+alias ranger="lf"
 alias music="cava"
 alias clear="clear && source ~/.zshrc"
 alias cl="clear"
@@ -93,7 +95,9 @@ alias rr="curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/mas
 alias rc-files="cd ~/github/rc-files"
 alias rc-update="cp ~/.zshrc ~/github/rc-files/.zsh_input && cp ~/.bashrc ~/github/rc-files/.bash_input"
 alias bw-dwm="cd ~/github/bw-dwm/archcraft-dwm"
-alias dwm="cd ~/github/bw-dwm/archcraft-dwm"
+#alias dwm="cd ~/github/bw-dwm/archcraft-dwm"
+alias dwm="cd ~/github/suckless/dwm"
+alias sl="cd ~/github/suckless"
 alias wallpapers="cd ~/github/wallpapers"
 alias install="nvim ~/github/install-script/install.sh"
 alias install-script="nvim ~/github/install-script/install.sh"
@@ -352,8 +356,18 @@ alias ohmyzsh="thunar ~/.oh-my-zsh"
 
 alias ls="exa -lah --color=always --group-directories-first --icons"
 #pfetch
-python ~/pfetch.py
+#python ~/pfetch.py
 #python /s.py
 export PATH=$PATH:/home/less/.spicetify
-#PROMPT="%B%F{235}[%f%b%F{240}%~%f%B%F{235}]%f%b %B%F{yellow}›%f%b "
-PROMPT="%B%F{235}[%f%b%F{240}%~%f%B%F{235}]%f%b %B%F{lightred}›%f%b "
+
+
+## Prompts
+# https://www.ditig.com/256-colors-cheat-sheet
+#Gray Minimal Prompt
+#PROMPT="%B%F{235}[%f%b%F{240}%~%f%B%F{235}]%f%b %B%F{lightred}›%f%b "
+#PROMPT="[%n@%m %~ $] "
+# Alacritty Color Prompt
+PROMPT='%F{9}[%F{11}%n%F{10}@%F{12}%m%F{1} %F{13}%~%F{9}]%f% $ '
+# St color prompt
+#PROMPT='%F{1}[%F{3}%n%F{2}@%F{4}%m%F{1} %F{5}%~%F{1}]%F{15}% $ '
+
