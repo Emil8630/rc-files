@@ -1,4 +1,5 @@
 export SUDO_ASKPASS="/home/less/dwm/askpass.sh"
+export PATH=$PATH:/home/less/.cargo/bin
 
 ###PATH="$HOME/.cargo/bin${PATH:+:=${PATH}}"
 
@@ -19,6 +20,14 @@ alias s="python /home/less/scripts/st.py"
 alias calc="python /home/less/scripts/calc.py"
 alias wipedrive="sh ~/github/bw-dwm/archcraft-dwm/shared/bin/wipe_drive.sh"
 alias writeiso="iso_write_func"
+alias newsboaturl="vim /home/less/.newsboat/urls"
+alias newsboat="newsboat -qr"
+alias n="nvim"
+alias v="vim"
+alias m="neomutt"
+alias a="abook"
+alias nb="newsboat -qr"
+alias rmr="sh ~/github/suckless/shred_folder"
 
 iso_write_func() {
     if [ -z "$1" ] || [ -z "$2" ]; then
@@ -91,17 +100,20 @@ alias grep="ripgrep"
 alias vmhelp="echo Starta && echo virsh start VM-NAMN && echo Stoppa && echo virsh shutdown VM-NAMN && echo Lista && echo virsh list --all && echo Öppna skärm && echo virt-viewer VM-NAMN && echo && echo virt-install --name=VALFRITT-NAMN \ && echo --vcpus=1 \ && echo --memory=1024 \ && echo --cdrom=/home/whoami/Downloads/Distros/Win11.iso \ && echo --disk size=5 \ && echo --os-variant=win11" 
 alias rr="curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash"
 
+alias pgpsign="gpg --clearsign -a -u StephenJordan84@tutanota.com -o signed_message.txt $1 && sudo shred -fzu $1"
+alias emilpgpsign="gpg --clearsign -a -u emil@emll.xyz -o signed_message.txt $1 && sudo shred -fzu $1"
+
 # Github Repos
 alias rc-files="cd ~/github/rc-files"
 alias rc-update="cp ~/.zshrc ~/github/rc-files/.zsh_input && cp ~/.bashrc ~/github/rc-files/.bash_input"
 alias bw-dwm="cd ~/github/bw-dwm/archcraft-dwm"
 #alias dwm="cd ~/github/bw-dwm/archcraft-dwm"
-alias dwm="cd ~/github/suckless/dwm"
-alias sl="cd ~/github/suckless"
+alias dwm="cd ~/github/suckless/dwm && ls"
+alias sl="cd ~/github/suckless && ls"
 alias wallpapers="cd ~/github/wallpapers"
 alias install="nvim ~/github/install-script/install.sh"
 alias install-script="nvim ~/github/install-script/install.sh"
-alias nvim-config="cd ~/.config/nvim/lua/core"
+alias nvim-config="cd ~/.config/nvim/lua/core && ls"
 
 # Changing "ls" to "exa"
 #alias ls='exa -lah --color=always --group-directories-first' # my preferred listing
@@ -177,8 +189,6 @@ alias rm="sudo shred -fzu"
 alias ln="ln -i"
 
 # Log Deletion
-#alias exit="sudo shred -vfzu /var/log/boot.log && sudo shred -vfzu /var/log/pacman.log && sudo shred -vfzu /var/log/Xorg.0.log && sudo shred -vfzu /home/whoami/.zsh_history && sudo shred -vfzu /var/log/mullvad-vpn/daemon.log && clear && echo GoodBye! && exit"
-alias exit="cd -s /var/log && sudo shred -vfzu boot.log pacman.log Xorg.0.log Xorg.0.log.old && cd -s /home/less && sudo shred -vfzu .zsh_history && sudo shred -vfzu /var/log/mullvad-vpn/daemon.log && clear && echo System wipedown complete! && exit"
 alias wipe="sudo shred -vfzu /var/log/boot.log && sudo shred -vfzu /var/log/pacman.log && sudo shred -vfzu /var/log/Xorg.0.log && sudo shred -vfzu /home/whoami/.zsh_history && sudo shred -vfzu /var/log/mullvad-vpn/daemon.log && clear && echo System wipedown complete!"
 
 

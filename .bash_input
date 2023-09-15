@@ -249,3 +249,5 @@ alias ls="exa -lah --color=always --group-directories-first --icons"
 #pfetch
 python ~/pfetch.py
 export PATH=$PATH:/home/less/.spicetify
+export PS1='\[\033[38;5;9m\][\[\033[38;5;11m\]\u\[\033[38;5;10m\]@\[\033[38;5;12m\]\h\[\033[38;5;1m\] \[\033[38;5;13m\]\w\[\033[38;5;9m\]]\[\033[m\]$ '
+
