@@ -28,6 +28,11 @@ alias m="neomutt"
 alias a="abook"
 alias nb="newsboat -qr"
 alias rmr="sh ~/github/suckless/shred_folder"
+alias rmtrash="sh ~/github/suckless/shred_trash"
+alias lol="python ~/crypt.py -o de -k "
+alias lold="python ~/crypt.py -o d -k "
+alias lole="python ~/crypt.py -o e -k"
+
 
 iso_write_func() {
     if [ -z "$1" ] || [ -z "$2" ]; then
