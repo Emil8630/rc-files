@@ -1,8 +1,14 @@
-export SUDO_ASKPASS="/home/less/dwm/askpass.sh"
+if [ -d "$HOME/adb-fastboot/platform-tools" ] ; then
+ export PATH="$HOME/adb-fastboot/platform-tools:$PATH"
+fi
+
+export SUDO_ASKPASS="/home/less/github/dwm/askpass.sh"
 export PATH=$PATH:/home/less/.cargo/bin
 
 ###PATH="$HOME/.cargo/bin${PATH:+:=${PATH}}"
 
+alias m="ssh less@10.7.5.10"
+alias ven='sh -c "$(curl -sS https://raw.githubusercontent.com/Vendicated/VencordInstaller/main/install.sh)" && killall Discord'
 alias nano="nvim"
 alias py="python"
 alias r="ranger"
@@ -14,7 +20,7 @@ alias clock="tty-clock"
 alias gc="git clone"
 alias cheatsheet="python ~/cheatsheet.py"
 alias cs="cheatsheet"
-alias grep="batgrep"
+#alias grep="batgrep"
 alias man="batman"
 alias s="python /home/less/scripts/st.py"
 alias calc="python /home/less/scripts/calc.py"
@@ -23,15 +29,23 @@ alias writeiso="iso_write_func"
 alias newsboaturl="vim /home/less/.newsboat/urls"
 alias newsboat="newsboat -qr"
 alias n="nvim"
+alias vim="nvim"
 alias v="vim"
-alias m="neomutt"
+#alias m="neomutt"
 alias a="abook"
 alias nb="newsboat -qr"
 alias rmr="sh ~/github/suckless/shred_folder"
 alias rmtrash="sh ~/github/suckless/shred_trash"
-alias lol="python ~/crypt.py -o de -k "
-alias lold="python ~/crypt.py -o d -k "
+alias lol="python ~/crypt.py -o de -k"
+alias lold="python ~/crypt.py -o d -k"
 alias lole="python ~/crypt.py -o e -k"
+alias myip="check_mullvad"
+
+check_mullvad() {
+  curl -s https://am.i.mullvad.net/ip
+  curl -s https://am.i.mullvad.net/city
+  curl -s https://am.i.mullvad.net/country
+}
 
 
 iso_write_func() {
@@ -113,11 +127,11 @@ alias rc-files="cd ~/github/rc-files"
 alias rc-update="cp ~/.zshrc ~/github/rc-files/.zsh_input && cp ~/.bashrc ~/github/rc-files/.bash_input"
 alias bw-dwm="cd ~/github/bw-dwm/archcraft-dwm"
 #alias dwm="cd ~/github/bw-dwm/archcraft-dwm"
-alias dwm="cd ~/github/suckless/dwm && ls"
+#alias dwm="cd ~/github/suckless/dwm && ls"
 alias sl="cd ~/github/suckless && ls"
 alias wallpapers="cd ~/github/wallpapers"
 alias install="nvim ~/github/install-script/install.sh"
-alias install-script="nvim ~/github/install-script/install.sh"
+alias ainstall="nvim ~/github/install-script/artix-install.sh"
 alias nvim-config="cd ~/.config/nvim/lua/core && ls"
 
 # Changing "ls" to "exa"
@@ -385,4 +399,3 @@ export PATH=$PATH:/home/less/.spicetify
 PROMPT='%F{9}[%F{11}%n%F{10}@%F{12}%m%F{1} %F{13}%~%F{9}]%f% $ '
 # St color prompt
 #PROMPT='%F{1}[%F{3}%n%F{2}@%F{4}%m%F{1} %F{5}%~%F{1}]%F{15}% $ '
-
